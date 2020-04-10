@@ -1,37 +1,36 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import { moment } from 'moment';
 
-class App extends React.Component{
+export class App extends React.Component{
   constructor(props){
     super(props);
     this.state={
       year : null,
       month : null,
-      week : null,
       today : null,
+      calendar = [],
     } 
   };
 
   componentDidMount = () => {
-    let nowDate = new Date();
-    let today = nowDate.getDate();
-    let firstDay = new Date(nowDate.getFullYear(), nowDate.getMonth(),1);
-    let lastDay = new Date(nowDate.getFullYear(), nowDate.getMonth(),0);
-    let week = new Date(nowDate.getFullYear(), nowDate.getMonth(),nowDate.getDay());
-    
+    let currentDate = moment();
+    let firstWeek = currentDate.clone().startOf('month').week(); //using clone for prevent mutable
+    let lastDay = currentDate.clone().endOf('month').week() === 1 ? 53 : today.clone().endOf('month').week();
+        
     //아..moment 사용해야겠는걸
     
     this.setState({
-      today: this.today,
+      week:today,
     })
   }
 
   render(){
-    const { today } = this.state;
+    const { week } = this.state;
     return(
       <div>
-        {today}
+        {week}
       </div>
     );
   }
