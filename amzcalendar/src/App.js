@@ -24,10 +24,11 @@ export class App extends React.Component{
       calendar.push(
         <div className="rows" key={week}>
           {
+            //map(function(value, index){...})
             Array(7).fill(null).map((n, i) => {
-              let current = today.clone().week(week).startOf('week').add(n + i, 'day')
-              let isSelected = today.format('YYYYMMDD') === current.format('YYYYMMDD') ? 'selected' : '';
-              let isGrayed = current.format('MM') === today.format('MM') ? '' : 'grayed';
+              let current = currentDate.clone().week(week).startOf('week').add(n + i, 'day')
+              let isSelected = currentDate.format('YYYYMMDD') === current.format('YYYYMMDD') ? 'selected' : '';
+              let isGrayed = current.format('MM') === currentDate.format('MM') ? '' : 'grayed';
               return (
                 <div className={`box  ${isSelected} ${isGrayed}`} key={i}>
                   <span className={`text`}>{current.format('D')}</span>
