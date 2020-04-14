@@ -1,0 +1,13 @@
+currentDate.clone().week() <- 1년이 53주, 중에 현재 주를 반환
+currentDate.clone().endOf('month') <- 이달 말로 정한 후
+currentDate.clone().endOf('month').week() <- 말주를 반환
+
+.add(1,days) -> 시간을 더함으로써 원래의 순간을 변화시킨다.
+add(추가할 시간과, 양)
+
+currentDate.format('YYYYMMDD') === current.format('YYYYMMDD') ? 'selected' : '';
+-> 지금의 요일과, 맨 첫번쨰요일, 즉 일요일부터 시작해서 루프를 돌아,
+    오늘의 요일을 찾는 함수 isSelected
+
+isGrayed
+-> 달력에 다른 일자가 들어온다면 grayout 시키기위한 함수.

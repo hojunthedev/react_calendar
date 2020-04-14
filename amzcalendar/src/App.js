@@ -1,6 +1,6 @@
 import React from 'react';
 import logo from './logo.svg';
-import './App.scss';
+import './App.css';
 import moment, { Moment as MomentTypes} from 'moment';
 import { MdChevronLeft, MdChevronRight } from 'react-icons/md';
 
@@ -8,8 +8,8 @@ export class App extends React.Component{
 
     getCalendar = () => {
     const currentDate = moment(); //get current date
-    //set to the first of this month & returns week-of-year of aMoment
-    const firstWeek = currentDate.clone().startOf('month').week(); //using clone for prevent mutable 현재 주
+    //set to the first of this month & returns week-of-year
+    const firstWeek = currentDate.clone().startOf('month').week(); //using clone for prevent mutable
     const lastWeek = currentDate.clone().endOf('month').week() === 1 ? 53 : currentDate.clone().endOf('month').week(); //year = 53weeks
     let calendar = [];
 
@@ -32,9 +32,10 @@ export class App extends React.Component{
         </div>
       )
     }
+    return calendar;
   }
 
-  render(){
+  render(){ //오.. 렌더가 없는데 뭐지...?
     return(
       <div className="Calendar">
       <div className="head">
