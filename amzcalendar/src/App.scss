@@ -1,0 +1,11 @@
+/*주석*/
+$bg-color : red;
+
+.Calendar {
+    .head{
+        display: flex;                  //동적인 화면을 위함
+        justify-content: space-between; //좌우관계정렬 상태
+        //align-items: stretch;         //flex요소의 수직방향정렬방식설정, 한줄은 효과없음
+        padding: 12px 12px;              //안쪽여백의 상하, 좌우. 바깥은 margin
+    }
+}

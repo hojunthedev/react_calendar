@@ -1,6 +1,6 @@
 import React from 'react';
 import logo from './logo.svg';
-import './App.css';
+import './App.scss';
 import moment, { Moment as MomentTypes} from 'moment';
 import { MdChevronLeft, MdChevronRight } from 'react-icons/md';
 
