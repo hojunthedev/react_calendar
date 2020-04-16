@@ -8,14 +8,14 @@ export class App extends React.Component{
 
     getCalendar = () => {
     const currentDate = moment(); //get current date
-    //set to the first of this month & returns week-of-year of aMoment
-    const firstWeek = currentDate.clone().startOf('month').week(); //using clone for prevent mutable 현재 주
+    //set to the first of this month & returns week-of-year
+    const firstWeek = currentDate.clone().startOf('month').week(); //using clone for prevent mutable
     const lastWeek = currentDate.clone().endOf('month').week() === 1 ? 53 : currentDate.clone().endOf('month').week(); //year = 53weeks
     let calendar = [];
 
     for(let week = firstWeek;week <= lastWeek;week++){
       calendar.push(
-        <div className="rows" key={week}>
+        <div className="row" key={week}>
           {
             //map(function(value, index){...})
             Array(7).fill(0).map((n, i) => {
@@ -32,9 +32,10 @@ export class App extends React.Component{
         </div>
       )
     }
+    return calendar;
   }
 
-  render(){
+  render(){ //오.. 렌더가 없는데 뭐지...?
     return(
       <div className="Calendar">
       <div className="head">
