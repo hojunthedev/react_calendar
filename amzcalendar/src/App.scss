@@ -1,11 +1,92 @@
-/*주석*/
-$bg-color : red;
-
-.Calendar {
+.Calendar{
+    user-select: none;
     .head{
         display: flex;                  //동적인 화면을 위함
         justify-content: space-between; //좌우관계정렬 상태
         //align-items: stretch;         //flex요소의 수직방향정렬방식설정, 한줄은 효과없음
         padding: 12px 12px;              //안쪽여백의 상하, 좌우. 바깥은 margin
+        button{
+            cursor: pointer;
+            outline: none;
+            display: inline-flex;
+            background: transparent;
+            border: none;
+            font-size: 20pt;
+            padding: 4px;
+            border-radius: 4px;
+            &:hover{                    //커서가 요소에 올라가 있을 때 적용 /'&:' 버튼 클래스 속에 명명하는것, 요소는 정해져있음
+              background-color: rgba(gray,0.1);
+            }
+            &:active{                   //커서의 활성, 즉 마우스를 누루는 순간부터 떼는 지점까지를 의미
+              background-color: rgba(gray,0.2);
+            }
+          }
+          span.title{
+            cursor:pointer;
+            border-radius: 5px;
+            padding: 4px 12px;
+            &:hover{
+              background-color: rgba(gray,0.1);
+            }
+            &:active{
+              background-color: rgba(gray,0.2);
+            }
+        }
+    }
+    .body{
+      .row{
+        display: flex;
+        cursor: pointer;
+        &:first-child{
+          cursor: initial;
+          .box{
+            font-weight: bold;
+          }
+          .box:hover > span.text{
+            background-color: white;
+          }
+        }
+        .box{
+          position: relative;
+          display: inline-flex;
+          width: calc(100%/7);
+          height: 0;
+          padding-bottom: calc(100%/7);
+          font-size: 12pt;
+          &:first-child{
+            color: red;
+          }
+          &:last-child{
+            color: #588dff;
+          }
+          &.grayed{
+            color: #BDBDBD;
+          }
+          &:hover{
+            span.text{
+              background-color: rgba(#588dff, 0.1);
+              transition: all 0.5s;
+            }
+          }
+          &.selected{
+            span.text{
+              background-color: #588dff;
+              color: white;
+            }
+          }
+          span.text{
+            border-radius: 100%;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 60%;
+            height: 60%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+          }
+        }
+      }
     }
 }

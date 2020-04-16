@@ -15,7 +15,7 @@ export class App extends React.Component{
 
     for(let week = firstWeek;week <= lastWeek;week++){
       calendar.push(
-        <div className="rows" key={week}>
+        <div className="row" key={week}>
           {
             //map(function(value, index){...})
             Array(7).fill(0).map((n, i) => {
