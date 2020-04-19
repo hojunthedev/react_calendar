@@ -4,7 +4,8 @@ import './App.scss';
 import moment, { Moment as MomentTypes} from 'moment';
 import { MdChevronLeft, MdChevronRight } from 'react-icons/md';
 
-export class App extends React.Component{
+//default export 별도 호출하던 것을 통합
+export default class App extends React.Component{
 
     getCalendar = () => {
     const currentDate = moment(); //get current date
@@ -35,7 +36,7 @@ export class App extends React.Component{
     return calendar;
   }
 
-  render(){ //오.. 렌더가 없는데 뭐지...?
+  render(){ //함수형에는 render해주지 않아도 된다.
     return(
       <div className="Calendar">
       <div className="head">
@@ -73,5 +74,3 @@ export class App extends React.Component{
     );
   }
 }
-
-export default App;
