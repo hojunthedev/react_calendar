@@ -21,7 +21,7 @@ export default handleActions({
     [CHANGE_DATE] : (state, action) => {
         //immer.js로 불변성을 관리할 예정. 불변성관리의 중요성을 잘 숙지할 것.
         return produce(state, draft => {
-            draft.date = action.payload,
+            draft.date = action.payload
         })
         //payload
     }
