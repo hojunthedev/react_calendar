@@ -16,13 +16,14 @@ const initialState = {
 }
 
 //[리듀서] 정의:export default로 내보내줘야한다(규칙) 변화를 일으키는 함수, 두가지 파라미터를 가진다(state, action)
-//handleActions이용예정
+//handleActions의 파라미터(실행할 함수들을 가지고 있는 객체, 상태의 기본값)
 export default handleActions({
     [CHANGE_DATE] : (state, action) => {
         //immer.js로 불변성을 관리할 예정. 불변성관리의 중요성을 잘 숙지할 것.
+        //produce함수의 파라미터는(수정하고싶은 상태, 어떻게 업데이트하고 싶은지)
         return produce(state, draft => {
             draft.date = action.payload
         })
-        //payload
-    }
-})
+        
+    },
+}, initialState);
