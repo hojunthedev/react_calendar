@@ -12,7 +12,7 @@ export const dateChange = createAction(CHANGE_DATE);
 
 //초기상태 정의
 const initialState = {
-    date = moment(),
+    date : moment(),
 }
 
 //[리듀서] 정의:export default로 내보내줘야한다(규칙) 변화를 일으키는 함수, 두가지 파라미터를 가진다(state, action)
