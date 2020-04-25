@@ -3,15 +3,17 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-
-import reducers from './store/module/modul';
-import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 
-// 스토어 생성:개발자도구에서 쉽게 디버깅 가능
-const store = createStore(reducers, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+import calendar from './store/calendar';
+import { Provider } from 'react-redux';
+
+//리듀서가 여러개일 경우, combineReducers를 이용하자.
+const store = createStore(calendar);
+console.log(store.getState());
 
 ReactDOM.render(
+  //provider : 리액트 프로젝트에 스토어 연동. props = store
   <Provider store={store}>
     <App />
   </Provider>,
