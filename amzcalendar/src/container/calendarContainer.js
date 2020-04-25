@@ -5,8 +5,25 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import App from './App';
-import {changeDate} from './store/calendar';
+import { dateChange } from './store/calendar';
+import { bindActionCreators } from 'redux';
 
-class AppContainer extends React.Component {
-
+class AppContainer extends Component {
+    render(){
+        const {date, dateChange} = this.props;
+        return(
+            <App date={date} dateChange={dateChange}/>
+        )
+    }
 }
+
+//컴포넌트에 리덕스 스토어를 연동해줄떄에는 connect함수 사용
+export default connect(
+    ({ calendar }) => ({
+        date : calendar.date
+    }),
+    //dispatch(action) 액션을 보냅니다. 이것이 상태변경을 일으키기위한 유일한 방법.
+    (dispatch) => ({
+        dateChange : bindActionCreators(dateChange, dispatch)
+    })
+)(CalendarContainer); //redux(3)
