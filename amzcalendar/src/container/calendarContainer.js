@@ -2,13 +2,13 @@
 //단순히 props를 전달해주며 그대로 보여주는 컴포넌트들은 프레젠테이셔널 컴포넌트라고 부른다. : 덤 컴포넌트
 //각각의 장점이 있다.
 
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import App from './App';
 import { dateChange } from './store/calendar';
 import { bindActionCreators } from 'redux';
 
-class AppContainer extends Component {
+class AppContainer extends React.Component {
     render(){
         const {date, dateChange} = this.props;
         return(
@@ -26,4 +26,4 @@ export default connect(
     (dispatch) => ({
         dateChange : bindActionCreators(dateChange, dispatch)
     })
-)(CalendarContainer); //redux(3)
+)(AppContainer); //redux(3)
