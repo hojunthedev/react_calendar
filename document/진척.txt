@@ -1,0 +1,11 @@
+도대체 어떤 흐름인지 감이 안잡힌다.
+지금은 아마, App.js가 export default클래스로 되어있어서
+스토어가 호출되기 전에 먼저 랜더링하기때문에
+props의 상태가 undifined가 되어, 진행할 수 없다.
+
+흐름을 아는것부터가 중요하다.
+https://backback.tistory.com/321
+
+0427
+createStore에 넘겨주는게 잘못된거같은데
+오만거 다쓰니까 헷갈려죽겟네

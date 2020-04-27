@@ -1,75 +1,13 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.scss';
-import moment, { Moment as MomentTypes} from 'moment';
-import { MdChevronLeft, MdChevronRight } from 'react-icons/md';
+import AppContainer from './containers/CalendarContainer';
 
-//default export 별도 호출하던 것을 통합
-export default class App extends React.Component{
-    getCalendar = () => {
-    const currentDate = moment(); //get current date
-    //set to the first of this month & returns week-of-year
-    const firstWeek = currentDate.clone().startOf('month').week(); //using clone for prevent mutable
-    const lastWeek = currentDate.clone().endOf('month').week() === 1 ? 53 : currentDate.clone().endOf('month').week(); //year = 53weeks
-    let calendar = [];
-
-    for(let week = firstWeek;week <= lastWeek;week++){
-      calendar.push(
-        <div className="row" key={week}>
-          {
-            //map(function(value, index){...})
-            Array(7).fill(0).map((n, i) => {
-              let current = currentDate.clone().week(week).startOf('week').add(n + i, 'day');
-              let isSelected = currentDate.format('YYYYMMDD') === current.format('YYYYMMDD') ? 'selected' : '';
-              let isGrayed = current.format('MM') === currentDate.format('MM') ? '' : 'grayed';
-              return (
-                <div className={`box  ${isSelected} ${isGrayed}`} key={i}>
-                  <span className={`text`}>{current.format('D')}</span>
-                </div>
-              )
-            })
-          }
-        </div>
-      )
-    }
-    return calendar;
-  }
-
-  render(){ //함수형에는 render해주지 않아도 된다.
-    return(
-      <div className="Calendar">
-      <div className="head">
-        <button><MdChevronLeft /></button>
-    <span className="title">{moment().format('MMMM YYYY')}</span>
-        <button><MdChevronRight /></button>
-      </div>
-      <div className="body">
-        <div className="row">
-          <div className="box">
-            <span className="text">SUN</span>
-          </div>
-          <div className="box">
-            <span className="text">MON</span>
-          </div>
-          <div className="box">
-            <span className="text">TUE</span>
-          </div>
-          <div className="box">
-            <span className="text">WED</span>
-          </div>
-          <div className="box">
-            <span className="text">THU</span>
-          </div>
-          <div className="box">
-            <span className="text">FRI</span>
-          </div>
-          <div className="box">
-            <span className="text">SAT</span>
-          </div>
-        </div>
-        {this.getCalendar()}
-      </div>
+const App = (props) => {
+  console.log(props);
+  return (
+    <div className="App">
+      <AppContainer />
     </div>
-    );
-  }
+  );
 }
+
+export default App;
