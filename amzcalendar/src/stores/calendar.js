@@ -1,5 +1,5 @@
 //파일과 리듀서를 위한 파일을 따로 작성하지만, 이번에는 하나로 작성. 이를 Ducks패턴 이라고 부름
-import moment, { Moment as MomentTypes, calendarFormat }from "moment";
+import moment from 'moment';
 import { createAction, handleActions } from 'redux-actions';
 import produce from 'immer';
 

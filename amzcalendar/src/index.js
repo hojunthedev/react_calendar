@@ -1,20 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import { createStore } from 'redux';
-
-import { AppContainer } from '../CalendarContainer';
+import store from './stores';
 import { Provider } from 'react-redux';
 
 //리듀서가 여러개일 경우, combineReducers를 이용하자.
-const store = createStore(AppContainer); //파라미터로는 리듀서 함수를 전달해준다.
+//const store = createStore(calendar); //파라미터로는 리듀서 함수를 전달해준다.
 //console.log(store.getState());
 
 ReactDOM.render(
   //provider : 리액트 프로젝트에 스토어 연동. props = store
-  <Provider store={store}>
+  <Provider store= {store} >
     <App />
   </Provider>,
   document.getElementById('root')
